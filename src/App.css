@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+.img img {
+  height:147px
+}
+.white {
+  color:white;
+  /* text-decoration: underline; */
+  box-sizing: border-box;
+  padding:20px 468px;
+ 
+}
+.card{
+  height:410px;
+}
+.pg{
+  color:white;
+  margin-top: 17px;
+}
