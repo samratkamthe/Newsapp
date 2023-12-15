@@ -43,13 +43,28 @@
   color:white;
   /* text-decoration: underline; */
   box-sizing: border-box;
-  padding:20px 468px;
+  /* padding:20px 468px; */
+  margin-top: 40px;
  
 }
 .card{
-  height:410px;
+  height:420px;
 }
 .pg{
   color:white;
   margin-top: 17px;
+}
+.bm{
+  position: absolute;
+  bottom:10px;
+ 
+}
+
+.indx{
+  left:79%;
+   z-index: 1;
+}
+.indxx{
+  left:90%;
+   z-index: 1;
 }
