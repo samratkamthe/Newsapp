@@ -156,17 +156,18 @@ export class News extends Component {
     }
     async updateNews(){
       this.props.setProgress(10)
-      const url=`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=e7fbbce4d0ac459c84b4693b3d04ba0a&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+      const url=`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
       this.setState({loading:true});
         let data=await fetch(url); 
         this.props.setProgress(50)
-        let parsedData= await data.json();
-     
+        let parsedData= await data.json();  
+        this.props.setProgress(80)   
         this.setState({
           // page:this.state.page,
-          articles:parsedData.articles , 
+          articles:parsedData.articles, 
           totalResults: parsedData.totalResults,
-          loading:false})
+          loading:false
+        })
       this.props.setProgress(100)
 
 
@@ -176,20 +177,11 @@ export class News extends Component {
     this.updateNews();
         
     }
-//     handlePrevClick=async()=>{
-     
-//       this.setState({page:this.state.page -1})
-//       this.updateNews();
-//     }
-// handleNextClick=async()=>{
-    
-//       this.setState({page:this.state.page+1})
-//       this.updateNews();
 
-// }
 fetchMoreData=async()=>{
   this.setState({page: this.state.page+1})
-  const url=`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=e7fbbce4d0ac459c84b4693b3d04ba0a&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+  const url=`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page+1}&pageSize=${this.props.pageSize}`;
+  this.setState({page: this.state.page+1})
       // this.setState({loading:true});
         let data=await fetch(url); 
         let parsedData= await data.json();
@@ -217,7 +209,7 @@ fetchMoreData=async()=>{
         >
           <div className="container">
        <div className="row">
-        {this.state.articles.map((element)=>{
+        {this.state.articles.map((element, index)=>{
          return     <div className="col-md-3" key={element.url}>
               <NewsItem  title={element.title?element.title.slice(0,45):""} description={element.description?element.description.slice(0,88):""} imageUrl={element.urlToImage} newstime={element.publishedAt?element.publishedAt.slice(0,10):""} neurl={element.url} source={element.source.name}/>
           </div>

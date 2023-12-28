@@ -5,7 +5,7 @@ export class NewsItem extends Component {
   render() {
     let {title,description, imageUrl,newstime,neurl,source}=this.props;
     return (
-      <div className="my-3 mx-2">
+      <div className="mhhy-3 ">
         <div className="card img" style={{width:"18rem"}}>
         <span className={`position-absolute top-0  translate-middle badge rounded-pill bg-danger ${source.length>=15?'indx':'indxx'}`}  >{source}</span>
          <img src={imageUrl?imageUrl:"https:th.bing.com/th/id/OIP.81UeEFmMJ2id3svgyutWFwAAAA?rs=1&pid=ImgDetMain"} className="card-img-top" alt="..."/>
