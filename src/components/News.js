@@ -20,12 +20,12 @@ export class News extends Component {
   capt=(stri)=>{
     let a= stri.toLowerCase();
     let c=a.charAt(0).toUpperCase()+a.slice(1);
-    console.log(c);
+    // console.log(c);
     return c;
   }
     constructor(props){
         super(props);
-        console.log("hello i am a comnstructor from news component");
+        // console.log("hello i am a comnstructor from news component");
         this.state={
             articles:[],
             loading:true,
@@ -65,7 +65,7 @@ fetchMoreData=async()=>{
       // this.setState({loading:true});
         let data=await fetch(url); 
         let parsedData= await data.json();
-        console.log(parsedData);
+        // console.log(parsedData);
         this.setState({
           articles:this.state.articles.concat(parsedData.articles) , 
           totalResults: parsedData.totalResults
@@ -75,7 +75,7 @@ fetchMoreData=async()=>{
 
 
   render() {                
-    console.log("render")
+    // console.log("render")
     return (
       <>
       
