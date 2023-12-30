@@ -152,7 +152,7 @@ export class News extends Component {
             page:1,
             totalResults:0
         }
-        document.title=this.capt(this.props.category);
+        document.title=`Quick it- ${this.capt(this.props.category)}`;
     }
     async updateNews(){
       this.props.setProgress(10)
